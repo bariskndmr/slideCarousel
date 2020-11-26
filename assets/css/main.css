@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.slider {
+  position: relative;
+  height: 100%;
+}
+
+.slider .slide {
+  position: relative;
+  background-image: url(../images/p1.jfif);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider .slide:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .2;
+}
+
+.slider .slide i {
+  position: absolute;
+  content: "";
+  font-size: 45px;
+  width: 40px;
+  top: 48%;
+  cursor: pointer;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider .slide i:hover {
+  opacity: .6;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider .slide i.prev {
+  left: 80px;
+}
+
+.slider .slide i.prev:hover {
+  -webkit-animation: prevmoving 1s infinite;
+          animation: prevmoving 1s infinite;
+}
+
+.slider .slide i.next {
+  right: 80px;
+}
+
+.slider .slide i.next:hover {
+  -webkit-animation: nextmoving 1s infinite;
+          animation: nextmoving 1s infinite;
+}
+
+@-webkit-keyframes prevmoving {
+  from {
+    left: 85px;
+  }
+  to {
+    left: 70px;
+  }
+}
+
+@keyframes prevmoving {
+  from {
+    left: 85px;
+  }
+  to {
+    left: 70px;
+  }
+}
+
+@-webkit-keyframes nextmoving {
+  from {
+    right: 85px;
+  }
+  to {
+    right: 70px;
+  }
+}
+
+@keyframes nextmoving {
+  from {
+    right: 85px;
+  }
+  to {
+    right: 70px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
