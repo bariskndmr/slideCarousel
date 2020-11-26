@@ -49,13 +49,12 @@ $(document).ready(function(){
         if(i<0){
             index= slideCount-1;
         }
+        
         if(i>=slideCount){
             index = 0;
         }
 
         images.css('background-image', 'url('+imageCollection[index].link+')');
         icons.css('color',imageCollection[index].color);
-
     }
-
 });
