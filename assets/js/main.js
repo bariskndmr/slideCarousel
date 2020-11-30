@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var imageCollection = [
+    const imageCollection = [
         {
             link: 'https://images.unsplash.com/photo-1606223226391-c267641c318c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80',
             color: '#808e9b'
@@ -21,15 +21,23 @@ $(document).ready(function(){
             color: '#cd6133'
         }
     ]
+
+
+    const settings = {
+        duration : '2500',
+        random: false
+    }
+
     
     var prevButton = $('.prev'),
         images = $('.slide'),
         index = 0,
-        icons = $('i');
+        icons = $('.buttons'),
         slideCount = imageCollection.length,
+        interval,
         nextButton = $('.next');
 
-    showSlide(index);
+    autoSlider(settings);    
 
     nextButton.click(function(e){
         index++;
@@ -42,6 +50,44 @@ $(document).ready(function(){
         showSlide(index);
         console.log(index);
     })
+
+    icons.mouseover(function(){
+        clearInterval(interval);
+    })
+
+    icons.mouseleave(function(){
+        autoSlider(settings);
+    })
+
+    
+
+    function autoSlider(settings){
+
+        var prev;
+        interval = setInterval(function(){
+            
+            if(settings.random){
+                do{
+                    index = Math.floor(Math.random() * slideCount);
+    
+                }while(index == prev)
+                prev = index;
+                console.log(index)
+                
+            }
+
+            else{
+                if(slideCount == index){
+                    index = 0;
+                }
+                index++;
+                console.log(index);
+            }
+
+            showSlide(index);
+
+        },settings.duration)
+    }
 
     function showSlide(i){
         index = i;
